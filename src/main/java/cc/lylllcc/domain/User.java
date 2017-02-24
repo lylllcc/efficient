@@ -1,15 +1,17 @@
 package cc.lylllcc.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 
 /**
  * Created by lylllcc on 2017/2/23.
  */
 
 @Entity
+@Table(name = "user")
+@JsonIgnoreProperties(value = {"password", "studentId", "id"})
 public class User {
 
     @Id
@@ -20,6 +22,7 @@ public class User {
     private String username;
     private double grate;
     private String studentId;
+    private String email;
 
     public int getId() {
         return id;
@@ -59,5 +62,22 @@ public class User {
 
     public void setStudentId(String studentId) {
         this.studentId = studentId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User(String password, String username, String email) {
+        this.password = password;
+        this.username = username;
+        this.email = email;
+    }
+
+    public User() {
     }
 }
