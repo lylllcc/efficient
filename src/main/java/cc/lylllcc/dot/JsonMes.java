@@ -3,7 +3,7 @@ package cc.lylllcc.dot;
 /**
  * Created by lylllcc on 2017/2/24.
  */
-public class ErrorJsonMes {
+public class JsonMes {
 
     private int code;
     private String message;
@@ -24,7 +24,7 @@ public class ErrorJsonMes {
         this.message = message;
     }
 
-    public ErrorJsonMes(int code, String message) {
+    public JsonMes(int code, String message) {
         this.code = code;
         this.message = message;
     }

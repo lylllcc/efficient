@@ -2,7 +2,7 @@ package cc.lylllcc.controller;
 
 import cc.lylllcc.domain.User;
 import cc.lylllcc.domain.UserRepository;
-import cc.lylllcc.dot.ErrorJsonMes;
+import cc.lylllcc.dot.JsonMes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -42,16 +42,16 @@ public class UserController {
     @JsonIgnore
     public Object regist(String username, String password, String email) {
         if (userRepository.findByUsername(username).isEmpty() != true) {
-            return new ErrorJsonMes(1, "用户名已存在");
+            return new JsonMes(1, "用户名已存在");
         } else if (userRepository.findByEmail(email).isEmpty() != true) {
-            return new ErrorJsonMes(2, "邮箱已经被注册");
+            return new JsonMes(2, "邮箱已经被注册");
         } else {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             try {
                 User user = new User(passwordEncoder.encode(password), username, email);
                 return userRepository.save(user);
             } catch (Exception ex) {
-                return new ErrorJsonMes(3, "未知错误");
+                return new JsonMes(3, "未知错误");
             }
         }
 
@@ -62,11 +62,11 @@ public class UserController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         User user = userRepository.findFirstByUsername(username);
         if (user == null) {
-            return new ErrorJsonMes(1, "用户不存在");
+            return new JsonMes(1, "用户不存在");
         } else if (passwordEncoder.matches(password, user.getPassword())) {
             return user;
         } else {
-            return new ErrorJsonMes(2,"用户名或密码错误");
+            return new JsonMes(2,"用户名或密码错误");
         }
 
     }
