@@ -21,6 +21,15 @@ public class Record {
     private String title;
     private String detail;
     private String species;
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getId() {
         return id;
@@ -70,12 +79,13 @@ public class Record {
         this.species = species;
     }
 
-    public Record(String startTime, String lastTime, String title, String detail, String species) {
+    public Record(String startTime, String lastTime, String title, String detail, String species, String username) {
         this.startTime = startTime;
         this.lastTime = lastTime;
         this.title = title;
         this.detail = detail;
         this.species = species;
+        this.username = username;
     }
 
     public Record() {
