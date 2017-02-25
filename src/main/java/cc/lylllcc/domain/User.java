@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
-@JsonIgnoreProperties(value = {"password", "studentId", "id"})
+@JsonIgnoreProperties(value = {"password", "id"})
 public class User {
 
     @Id
