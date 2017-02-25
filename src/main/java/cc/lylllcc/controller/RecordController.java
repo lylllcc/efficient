@@ -28,13 +28,13 @@ public class RecordController {
         Record record = new Record(startTime, lastTime, title, detail, species, username);
 
         if (userRepository.findByUsername(username).isEmpty() == true){
-            return new JsonMes(2,"用户名不存在");
+            return new JsonMes(1,"用户名不存在");
         }else {
             try {
                 recordRepository.save(record);
                 return new JsonMes(0, "保存成功");
             } catch (Exception ex) {
-                return new JsonMes(1, "保存失败，未知错误");
+                return new JsonMes(2, "未知错误");
             }
         }
     }

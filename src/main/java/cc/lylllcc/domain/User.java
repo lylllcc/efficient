@@ -1,6 +1,5 @@
 package cc.lylllcc.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -20,7 +19,7 @@ public class User {
 
     private String password;
     private String username;
-    private double grate;
+    private double grade;
     private String studentId;
     private String email;
 
@@ -48,12 +47,12 @@ public class User {
         this.username = username;
     }
 
-    public double getGrate() {
-        return grate;
+    public double getGrade() {
+        return grade;
     }
 
-    public void setGrate(double grate) {
-        this.grate = grate;
+    public void setGrade(double grade) {
+        this.grade = grade;
     }
 
     public String getStudentId() {
