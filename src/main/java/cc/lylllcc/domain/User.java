@@ -77,6 +77,13 @@ public class User {
         this.email = email;
     }
 
+    public User(String password, String username, String email, String studentId) {
+        this.password = password;
+        this.username = username;
+        this.email = email;
+        this.studentId = studentId;
+    }
+
     public User() {
     }
 }
