@@ -70,5 +70,21 @@ public class UserController {
         }
 
     }
+
+    @PostMapping("/bind")
+    public Object bind(String username, String studentId) {
+        User user = userRepository.findFirstByUsername(username);
+        if (user == null) {
+            return new JsonMes(1, "用户不存在");
+        } else {
+            try {
+                user.setStudentId(studentId);
+                userRepository.save(user);
+                return new JsonMes(0, "绑定成功");
+            } catch (Exception ex) {
+                return new JsonMes(2, "未知错误");
+            }
+        }
+    }
 }
 
