@@ -86,5 +86,28 @@ public class UserController {
             }
         }
     }
+
+    @PostMapping("/reset")
+    public Object reset(String username, String password, String newpassword) {
+        User user = userRepository.findFirstByUsername(username);
+        if (user == null) {
+            return new JsonMes(1, "用户不存在");
+        }
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            return new JsonMes(2, "密码错误");
+        }
+
+        try {
+            user.setPassword(passwordEncoder.encode(newpassword));
+            userRepository.save(user);
+            return new JsonMes(0, "修改成功");
+        } catch (Exception ex) {
+            return new JsonMes(3, "未知错误");
+        }
+
+
+    }
 }
 
