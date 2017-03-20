@@ -38,6 +38,12 @@ public class UserController {
         return new Test();
     }
 
+    @GetMapping("/userinfo")
+    @JsonIgnore
+    public Object info(String username){
+        return userRepository.findFirstByUsername(username);
+    }
+
     @PostMapping("/regist")
     @JsonIgnore
     public Object regist(String username, String password, String email, String studentId) {
@@ -106,7 +112,6 @@ public class UserController {
         } catch (Exception ex) {
             return new JsonMes(3, "未知错误");
         }
-
 
     }
 
