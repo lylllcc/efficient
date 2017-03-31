@@ -1,4 +1,4 @@
-package cc.lylllcc.dot;
+package cc.lylllcc.dto;
 
 /**
  * Created by lylllcc on 2017/2/24.

@@ -2,7 +2,7 @@ package cc.lylllcc.controller;
 
 import cc.lylllcc.domain.User;
 import cc.lylllcc.domain.UserRepository;
-import cc.lylllcc.dot.JsonMes;
+import cc.lylllcc.dto.JsonMes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

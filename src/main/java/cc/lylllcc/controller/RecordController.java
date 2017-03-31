@@ -2,9 +2,8 @@ package cc.lylllcc.controller;
 
 import cc.lylllcc.domain.Record;
 import cc.lylllcc.domain.RecordRepository;
-import cc.lylllcc.domain.User;
 import cc.lylllcc.domain.UserRepository;
-import cc.lylllcc.dot.JsonMes;
+import cc.lylllcc.dto.JsonMes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
