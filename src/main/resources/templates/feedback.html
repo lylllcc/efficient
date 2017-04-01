@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul th:each="feedback: ${feedbacks}">
+    <li th:text="${feedback.username}">用户名</li>
+    <li th:text="${feedback.type}">类型</li>
+    <li th:text="${feedback.detail}">详情</li>
+    <li th:text="${feedback.contact}">联系方式</li>
+</ul>
+
+</body>
+</html>
